@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding: 40px;
+  padding: 12px;
 }
 
 .container {
@@ -58,7 +58,7 @@ body {
   background-color: #fff;
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 210px;
+  width: 230px;
   text-align: center;
   transition: transform 0.3s;
   cursor: pointer;
@@ -112,7 +112,7 @@ body {
 
 .popup {
   display: flex;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -129,38 +129,41 @@ body {
 }
 
 .img2 {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin-right: 20px;
 }
 
 .profile-info {
-  flex-grow: 1;
+  width: 190px;
   border-right: 1px solid #eaeaea;
 }
 
 .name {
   font-size: 18px;
-  font-weight: bold;
-  margin: 0;
+  font-weight: bolder;
+  margin-right: 90px;
+  padding-bottom: 10px;
 }
 
 .pos {
   font-size: 14px;
-  color: #555;
-  margin: 5px 0;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 
 .com {
   font-size: 13px;
   color: #888;
+  margin-right: 130px;
 }
 
 .social {
   display: flex;
   gap: 10px;
   margin-top: 8px;
+  margin-left: 5px;
 }
 
 .close-btn {
@@ -179,12 +182,72 @@ body {
 }
 
 .card-content {
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .description {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .speakers {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .card {
+    width: 100%;
+  }
+  .btn-pro {
+    width: 100%;
+  }
+  .speakers button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .card {
+    width: 90%;
+  }
+  .btn-pro {
+    width: 80%;
+  }
+  .popup {
+    width: 90%;
+    padding: 10px;
+  }
+  .card-popup {
+    flex-direction: column;
+    align-items: center;
+  }
+  .img2 {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-info {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .name {
+    font-size: 16px;
+  }
+  .pos,
+  .com {
+    font-size: 12px;
+  }
+  .close-btn {
+    font-size: 16px;
+    top: 10px;
+    right: 10px;
+  }
+  .description {
+    font-size: 14px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

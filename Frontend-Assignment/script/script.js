@@ -40,43 +40,47 @@ let cards = document.querySelector(".cards");
 data.forEach((e)=>{
     let card = document.createElement("article");
     card.classList.add('card');
-
+    
     let img = document.createElement('img');
     img.src = e.img;
-
+    
     let name = document.createElement("h2");
     name.textContent = e.name;
-
+    
     let position = document.createElement('h3');
     position.classList.add("position")
     position.textContent = e.position;
-
+    
     let company = document.createElement('p');
     company.classList.add("company")
     company.textContent = e.company;
-
+    
     card.append( img , name , position , company );
-
+    
     card.addEventListener('click' , ()=>{
         localStorage.setItem('speaker', JSON.stringify(e));
         display();
     })
-
+    
     cards.append(card);
-
+    
 })
 
 
 
 function display(){
+    
+    let popupContainer = document.querySelector('.popup-container');    
+    popupContainer.innerHTML = '';
 
-
-    let popup = document.querySelector('.popup');
-    popup.innerHTML = '';
-
+    
     let e = JSON.parse(localStorage.getItem('speaker'));
-
+    
     if(e){
+
+        let popup = document.createElement('article');
+        popup.classList.add('popup');
+
         let card = document.createElement("header");
         card.classList.add('card-popup');
 
@@ -91,12 +95,12 @@ function display(){
         name.classList.add('name')
         name.textContent = e.name;
 
-        let position = document.createElement('p');
+        let position = document.createElement('h3');
         position.classList.add("pos");
         position.textContent = e.position;
 
         let company = document.createElement("p");
-        company.classList.add("comp");
+        company.classList.add("com");
         company.textContent = e.company;
 
         let nav = document.createElement("nav");
@@ -118,8 +122,8 @@ function display(){
         cancel.innerHTML = `&times;`;
 
         cancel.addEventListener("click" , ()=>{
-           localStorage.removeItem('speaker')   
-           popup.style.display = 'none';
+           localStorage.removeItem('speaker')  
+         popupContainer.innerHTML= '';
         })
 
     profile.append(name , position , company , nav , cancel);
@@ -129,7 +133,7 @@ function display(){
     card.append(img , profile );
 
     let description = document.createElement("section");
-    description.classList.add('description');
+    description.classList.add('card-content');
 
     let content = document.createElement('p');
     content.textContent = e.bio;
@@ -137,6 +141,8 @@ function display(){
     description.append(content);
 
     popup.append(card , description);
+
+    popupContainer.append(popup)
 
 
 
