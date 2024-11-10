@@ -31,13 +31,70 @@ const data = [
         company: 'Specbee',
         bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
 
-    }
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
+    {
+        img: "./images/speaker 3.png",
+        name: "John Doe",
+        position: "Chief Technical Developer",
+        company: 'Pantheon',
+        bio: 'Monotonectally synergize business communities rather than client-centric convergence. Assertively unleash cross-platform best practices rather than pandemic total linkage. Synergistically monetize parallel infomediaries whereas 2.0 mindshare. Dramatically pursue real-time markets through e-business strategic theme areas.'
+
+    },
 ]
 
 
 let cards = document.querySelector(".cards");
+let currentPage = 0;
+let limit = 4;
 
-data.forEach((e)=>{
+
+let speakers = () => {
+    cards.innerHTML = '';
+    const start = currentPage * limit;
+    const end = start + limit;
+    let speak = data.slice(start , end);
+
+speak.forEach((e)=>{
     let card = document.createElement("article");
     card.classList.add('card');
     
@@ -65,8 +122,23 @@ data.forEach((e)=>{
     cards.append(card);
     
 })
+}
 
+document.getElementById('next').addEventListener("click" , ()=>{
+    if((currentPage + 1) * limit<data.length){
+        currentPage++;
+        speakers()
+    }
+})
 
+document.getElementById('prev').addEventListener('click' , () => {
+    if(currentPage > 0){
+        currentPage--;
+        speakers();
+    }
+})
+
+speakers();
 
 function display(){
     
